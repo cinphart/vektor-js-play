@@ -1,0 +1,58 @@
+* Introduction
+
+  This is a first attempt at Vektor, a lowest common denominator
+  wrapping of SVG and VML for angular JS, with the intent of providing
+  behavior roughly analogous to a hybrid of RaphaelJS and d3.js, but
+  building purely on top of angular js.
+
+* Status
+
+  So far, this is just some simple attempts at wrapping some VML in
+  angular directives. In fact, at the moment, it's just taking
+  existing VML elements, and creating a single 'interpolateable' (is
+  there such a word?) element from it.
+
+* Next Steps
+
+** TODO implement simple VML wrapper directives
+  
+   Create some simplistic wrapper directives within the angular JS
+   framework to allow position, color and size of for example a
+   rectangle and a oval to be determined by an angular controller
+
+   One thing to look at here might be to create something that looks
+   like a simplified subset of SVG, so that the wrapper can
+   essentially be forward compatible with SVG.
+
+   It would be necessary in this case to create a very basic subset of
+   SVG in angular directives, which could be an interesting experiment
+   at the very least.
+
+   Note that the intent would be only to create a limited set of the
+   functionality of SVG, hopefully enough to allow the creation of
+   useful cross-browser widgets with vector portions entirely in
+   angularjs.
+
+   A stretch goal (initially at least) would be to end up with
+   something that could take the [[https://github.com/sullerandras/SVG-Sequence-Diagram][sequence diagram example for
+   angularjs]] basically unchanged...
+
+   The idea is to create something that is the bastard stepchild of
+   RaphaelJS and D3.js, implemented on top of AngularJS
+   
+** TODO implement simple SVG wrapper SVG directives
+
+   Implement the same support for SVG based browsers that produces the
+   same output for the same input structures.
+
+   This may be obviated by the above, if it is determined that we can
+   create something with the angular compiler that basically converts
+   some simple subset of SVG to VML 'on the fly'
+
+   Actually, in the end, that would be an optimal approach, I think.
+   Definitely something to think about...
+
+** TODO implement feature detection to determine the implementation to use.
+
+   Whatever happens, we'll have to create (or steal, from RaphaelJS)
+   something to detect the absence of VML and the presence of SVG.
