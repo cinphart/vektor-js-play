@@ -1,13 +1,31 @@
-<html>
+<html id='ng:app' class='ng-app: myApp' ng-app='myApp' xmlns:rvml='urn:schemas-microsoft-com:vml'>
 <head>
   <title>Playing with Angular and VML/SVG</title>
+  <style>
+    div#canvas {
+      position:relative;
+      border: 1px dashed blue;
+    }
+    vrml:* {
+      behavior:url(#default#VML)
+    }
+  </style>
+  <![if lte IE 8]>
+  <script>
+     for (elem in ['']) {
+     }
+  </script>
+  <![endif]>
 </head>
-<body>
+<body ng-init='color="blue"'>
   <h1>Angular and VML/SVG</h1>
-  <div>Initially just some VML javascript testing</div>
-  <div id='canvas'
-  style='position:relative;width:400px;height:400px'/>
+  <div>Initially just some {{'VML'}} javascript testing</div>
+  <div id='canvas' ng-style='{width:"400px",height:"400px"}'>
+    <rvml:rect fillcolor='red' style='position:absolute;top:52;left:0;width:50;height:50' class='rvml'></rvml:rect>
+    <rvml:rect vc-fill-color='{{color}}' ng-style="{position:'absolute',top:20,left:0,width:77,height:13}" class='rvml'></rvml:rect>
+  </div>
   <div id='output'>Debug output goes here</div>
+  <script src='js/angular-1.0.1.min.js'></script>
   <script src='js/app.js'></script>
 </body>
 </html>
