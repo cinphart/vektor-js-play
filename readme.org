@@ -10,7 +10,14 @@
   So far, this is just some simple attempts at wrapping some VML in
   angular directives. In fact, at the moment, it's just taking
   existing VML elements, and creating a single 'interpolateable' (is
-  there such a word?) element from it.
+  there such a word?) attribute for the fillcolor attribute, which
+  doesn't seem to play well with AngularJS right now - in particular,
+  it seems to be a property rather than an attribute, so putting an
+  expression in the attribute doesn't appear to work well.
+
+  Note that I'm just testing this in IE9, and hoping that it will work
+  similarly in IE8 and earlier - I will try it out on IE7/8 when/if I
+  get a chance.
 
 * Next Steps
 
@@ -37,22 +44,11 @@
    something that could take the [[https://github.com/sullerandras/SVG-Sequence-Diagram][sequence diagram example for
    angularjs]] basically unchanged...
 
-   The idea is to create something that is the bastard stepchild of
-   RaphaelJS and D3.js, implemented on top of AngularJS
-   
-** TODO implement simple SVG wrapper SVG directives
-
-   Implement the same support for SVG based browsers that produces the
-   same output for the same input structures.
-
-   This may be obviated by the above, if it is determined that we can
-   create something with the angular compiler that basically converts
-   some simple subset of SVG to VML 'on the fly'
-
-   Actually, in the end, that would be an optimal approach, I think.
-   Definitely something to think about...
-
 ** TODO implement feature detection to determine the implementation to use.
 
    Whatever happens, we'll have to create (or steal, from RaphaelJS)
    something to detect the absence of VML and the presence of SVG.
+
+   Ideally, the final version will basically inherit allow you to use
+   a reasonably useful subset of the SVG syntax, but have it rendered
+   correctly in browsers that both do and don't support SVG.
