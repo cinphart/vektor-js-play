@@ -30,8 +30,10 @@ if (type == "VML") {
     //doc.getElementById('canvas').appendChild(rect);
     log("Element Appended");
 }
-
-log("Implementation is: " + type + ", canvas style is: " + document.getElementById('canvas').style.cssText);
+if (document.getElementById('canvas')) {
+    
+    log("Implementation is: " + type + ", canvas style is: " + document.getElementById('canvas').style.cssText);
+}
 
 angular.module('myApp',[])
    .directive(
@@ -49,3 +51,7 @@ angular.module('myApp',[])
                };
        });
 
+function Controller($scope) {
+  $scope.height = 100;
+  $scope.width = 100;
+}

@@ -1,0 +1,39 @@
+<html id='ng:app' class='ng-app: myApp' ng-app='myApp' xmlns:rvml='urn:schemas-microsoft-com:vml'>
+<head>
+  <title>Playing with Angular and VML/SVG</title>
+  <style>
+    div#canvas {
+      position:relative;
+      border: 1px dashed blue;
+    }
+    vrml:* {
+      behavior:url(#default#VML)
+    }
+  </style>
+  <![if lte IE 8]>
+  <script>
+     for (elem in ['']) {
+     }
+  </script>
+  <![endif]>
+</head>
+<body>
+  <h1>Angular and VML/SVG</h1>
+  <div>Initially just some {{'SVG'}} angularjs testing</div>
+
+  <div>
+    <div ng-controller="Controller">
+      <form novalidate class="simple-form">
+        Height: <input type="text" ng-model="height" /><br />
+        Width: <input type="text" ng-model="width" /><br />
+      </form>
+      <svg height='400' width='400' fill='beige'>
+        <rect x='0' y='0' height='{{height}}' width='{{width}}' fill='blue'/>
+      </svg>
+    </div>
+  </div>
+  <div id='output'>Debug output goes here</div>
+  <script src='js/angular-1.0.1.min.js'></script>
+  <script src='js/app.js'></script>
+</body>
+</html>
